@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spike Shoezo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter">
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        font-family: Montserrat;
+        background-color: #dddddd;
+    }
+
+    .logo-navbar {
+        height: 5rem;
+        transition: 900ms;
+    }
+
+    .nav-link {
+        font-weight: bold;
+        color: rgb(159, 159, 159);
+    }
+
+    .hero-col-1 {
+        padding-top: 15%;
+        padding-left: 8%;
+    }
+
+    .hero-col-2 {
+        margin: 0px;
+        padding: 0px;
+    }
+
+    .hero-round-red {
+        background-color: #EC1C23;
+        height: 100%;
+        width: 50%;
+        border-radius: 50% 0px 0px 50%;
+        position: absolute;
+
+        right: 0px;
+    }
+
+    .hero-img {
+        opacity: 1;
+        transition: opacity 600ms ease-in-out;
+
+    }
+
+    .hero-img-active {
+        width: 30rem;
+        position: absolute;
+        top: 30%;
+        left: -20%;
+        z-index: 3;
+        transform: translateX(-150px);
+        transition: 900ms;
+    }
+
+    .anime-after-img {
+        transform: translateX(0px);
+        transform: rotate(28.09deg);
+    }
+
+    .item-brand-div {
+        position: absolute;
+        right: 0;
+        top: 10rem;
+        z-index: 0;
+        padding: 10%;
+        text-align: center;
+
+        overflow-y: hidden;
+        overflow-x: hidden;
+    }
+
+    .item-brand {
+        text-align: center;
+        height: 30vh;
+        overflow: hidden;
+        opacity: 1;
+        transition: opacity 1s ease-in-out;
+    }
+
+    .navbar-shadow {
+        background-color: #dddddd;
+
+        transition: 900ms ease-in-out;
+    }
+
+    .brand-logo {
+        width: 8rem;
+    }
+
+    .about-col-1 {
+        background-image: url('./Rectangle\ 4701.png');
+        height: 120vh;
+        background-size: cover;
+    }
+
+    .about-col-2 {
+        background-image: url('./Rectangle\ 4702.png');
+        height: 120vh;
+        background-size: cover;
+    }
+
+    .round-col {
+        text-align: center;
+        border-radius: 50px;
+        background-color: #EC1C23;
+        color: white;
+        height: 3rem;
+        width: 3rem;
+        padding: 0.7rem;
+    }
+
+    .about-sub-1 {
+        height: 60%;
+    }
+
+    .about-sub-2 {
+        height: 40%;
+    }
+
+    @media only screen and (max-width: 600px) {
+        .logo-navbar {
+            height: 3rem !important;
+
+        }
+
+        .navbar {
+            background-color: #dddddd !important;
+        }
+
+        .hero-round-red {
+            background-color: #ff0000;
+            height: 100%;
+            width: 100%;
+            border-radius: 0% 0px 0px 0%;
+            position: absolute;
+            right: 0px;
+        }
+
+        .hero-img-active {
+            width: 20rem;
+            position: absolute;
+            top: 50%;
+            left: 8%;
+            z-index: 3;
+
+            transition: 900ms;
+        }
+
+        .item-brand {
+            text-align: center;
+            height: 20vh;
+            margin-right: 3rem;
+            overflow: hidden;
+            opacity: 1;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .about-col-1 {
+
+            height: 100vh;
+            background-size: cover;
+        }
+
+        .hero-col-1 {
+            padding-top: 45%;
+            padding-left: 8%;
+        }
+
+
+        .about-sub-2 {
+            height: 80%;
+            
+        }
+        .weoffer{
+            margin-top: 70%;
+        }
+.hide{
+    display: none;
+}
+
+    }
+</style>
+<style>
+    /* === removing default button style ===*/
+    .button {
+        margin: 0;
+        height: auto;
+        background: transparent;
+        padding: 0;
+        border: none;
+        cursor: pointer;
+    }
+
+    /* button styling */
+    .button {
+        --border-right: 6px;
+        --text-stroke-color: rgba(0, 0, 0, 0.6);
+        --animation-color: #ff3737;
+        --fs-size: 2em;
+        letter-spacing: 3px;
+        text-decoration: none;
+        font-size: var(--fs-size);
+        font-family: "Arial";
+        position: relative;
+        text-transform: uppercase;
+        color: transparent;
+        -webkit-text-stroke: 1px var(--text-stroke-color);
+    }
+
+    /* this is the text, when you hover on button */
+    .hover-text {
+        position: absolute;
+        box-sizing: border-box;
+        content: attr(data-text);
+        color: var(--animation-color);
+        width: 0%;
+        inset: 0;
+        border-right: var(--border-right) solid var(--animation-color);
+        overflow: hidden;
+        transition: 0.5s;
+        -webkit-text-stroke: 1px var(--animation-color);
+    }
+
+    /* hover */
+    .button:hover .hover-text {
+        width: 100%;
+        filter: drop-shadow(0 0 23px var(--animation-color))
+    }
+</style>
+
+<body>
+    <!-- navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top" id="navbar">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#"><img src="./spikefinal-.png" alt="spike_logo" class="logo-navbar"
+                    id="logo-navbar"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"
+                aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 text-center"
+                    style="width: 100%;justify-content: space-evenly">
+                    <li class="nav-item">
+                        <a class="nav-link " aria-current="page" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " aria-current="page" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " aria-current="page" href="#products">Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " aria-current="page" href="#testimonials">Testimonials</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " aria-current="page" href="#contact">Contact Us</a>
+                    </li>
+                    <li class="nav-item"></li>
+                    <li class="nav-item"></li>
+                    <li class="nav-item"></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- navbar -->
+    <!-- hero open -->
+    <div class="row" style="padding: 0px;margin: 0px;height: 100vh;" id="home">
+        <div class="col-12 col-md-5 col-lg-5 hero-col-1 ">
+            <h1 style="font-weight: bolder;">The Journey <br>
+                begins with the <br>
+                perfect pair
+            </h1>
+            <p>
+                Discover unparalleled style and unmatched comfort with Spike. Our meticulously crafted shoes
+                redefine fashion, ensuring every step you take is a statement. Elevate your footwear game
+            </p>
+            <button class="button" type="button" data-text="Learn More"
+                onclick="document.getElementById('about').scrollIntoView()">
+                <span class="actual-text">&nbsp;Learn&nbsp;More&nbsp;</span>
+                <span aria-hidden="true" class="hover-text">&nbsp;Learn&nbsp;More&nbsp;</span>
+            </button>
+
+        </div>
+        <div class="col-12 col-md-7 col-lg-7 hero-col-2 order-1 ">
+
+            <div class="hero-round-red">
+                <img src="./image 13 (1).png" id="heroImg" alt="product image" class="hero-img hero-img-active ">
+                <div class="item-brand-div">
+                    <img class="item-brand" id="itemBrand" src="">
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- hero close -->
+    <!-- brand section -->
+    <div class="container p-5 text-center">
+        <h3>Top Brands</h3>
+        <p>Find your Dream Shoe Pair from 500+ Collections</p>
+        <div class="row d-flex justify-content-center gap-5 mt-3">
+
+            <img src="./adidas-black.png" alt="" class="brand-logo">
+
+
+            <img src="./nike-black.png" alt="" class="brand-logo">
+
+
+            <img src="./puma-black.png" alt="" class="brand-logo">
+
+        </div>
+    </div>
+    <!-- brand section close-->
+    <!-- about -->
+    <div class="row" id="about" style="width: 100%;margin: 0px;">
+        <div class="col-12 col-md-6 col-lg-6 about-col-1">
+        </div>
+        <div class="col-12 col-md-6 col-lg-6 about-col-2">
+            <div class="row about-sub-1" style="padding: 20%;">
+                <h1 style="font-weight: bold;">Spike: Stride in Style Comfortably.</h1>
+                <p>At Spike, we're more than just a shoe reselling brand; we're curators of style and quality. With a
+                    passion for footwear, we handpick each pair, ensuring every step you take is a stride in
+                    fashion-forward confidence.</p>
+                <style>
+                    .shopnowbutton {
+                        font-size: 18px;
+                        letter-spacing: 2px;
+                        text-transform: uppercase;
+                        display: inline-block;
+                        text-align: center;
+                        font-weight: bold;
+                        padding: 0.7em 2em;
+                        border: 3px solid #EC1C23;
+                        border-radius: 50px;
+                        position: relative;
+                        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.1);
+                        color: #EC1C23;
+                        text-decoration: none;
+                        transition: 0.3s ease all;
+                        z-index: 1;
+                    }
+
+                    .shopnowbutton:before {
+                        transition: 0.5s all ease;
+                        position: absolute;
+                        top: 0;
+                        left: 50%;
+                        right: 50%;
+                        bottom: 0;
+                        opacity: 0;
+                        content: '';
+                        background-color: #EC1C23;
+                        z-index: -1;
+                    }
+
+                    .shopnowbutton:hover,
+                    .shopnowbutton:focus {
+                        color: white;
+                    }
+
+                    .shopnowbutton:hover:before,
+                    .shopnowbutton:focus:before {
+                        transition: 0.5s all ease;
+                        left: 0;
+                        right: 0;
+                        opacity: 1;
+                        border-radius: 50px;
+                    }
+
+                    .shopnowbutton:active {
+                        transform: scale(0.9);
+
+                    }
+                </style>
+                <button class="shopnowbutton"> Shop Now
+                </button>
+            </div>
+            <div class="row about-sub-2">
+                <div class="col-12 col-md-6 col-lg-6"
+                    style="background-image: url('./Rectangle\ 4703.png');background-size: cover;"></div>
+                <div class="col-12 col-md-6 col-lg-6"
+                    style="background-image: url('./Rectangle\ 4704.png');background-size: cover;"></div>
+            </div>
+        </div>
+    </div>
+    <!-- about close -->
+    <!-- we offer -->
+    <div class="container p-5 weoffer">
+        <div class="row pt-5">
+            <div class="col-12 col-md-7 col-lg-7 pt-5">
+                <h4>at Spike Shoezo</h4>
+                <h1 style="font-weight: bold;">We Offer</h1>
+
+                <div class="row p-2">
+                    <div class="col-1 round-col">1</div>
+                    <div class="col">
+                        <h4>Top Notch Quality</h4>
+                        <p>At Spike we take pride in offering the finest footwear crafted with precision and dedication.
+                            Step into unmatched comfort, durability, and style</p>
+                    </div>
+                </div>
+                <div class="row p-2">
+                    <div class="col-1 round-col">2</div>
+                    <div class="col">
+                        <h4>Comfort and Support</h4>
+                        <p>Spike shoes redefine comfort with precision. Our designs seamlessly blend style and support,
+                            ensuring every step is a delight. Elevate your comfort with Spike.</p>
+                    </div>
+                </div>
+                <div class="row p-2">
+                    <div class="col-1 round-col">3</div>
+                    <div class="col">
+                        <h4>Style and Versatility</h4>
+                        <p>With trend-conscious designs, vibrant colors, and timeless patterns, Spike offers a diverse
+                            range that complements every taste. Elevate your style with the perfect pairs!!.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-5 col-lg-5 hide"
+                style="background-image: url('./Group\ 1000001333.png');height: 80vh;background-size: cover;"></div>
+        </div>
+    </div>
+    <!-- we offer close -->
+    <!-- products  -->
+    <style>
+        .card-title {
+            font-weight: bold;
+        }
+
+        .card-img-top {
+            height: 18rem;
+        }
+    </style>
+    <div id="products" class="container pt-5 pb-5">
+        <h1 class="text-center">Our Products</h1>
+        <div class="row gap-5 justify-content-center pt-5 pb-5 p-3">
+
+            <div class="card p-1 col-12 col-sm-12 col-md-3 col-lg-3" style="border-radius: 20px;">
+                <img src="./Rectangle 4711.png" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Nike</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                        card's content.</p>
+
+                </div>
+            </div>
+
+            <div class="card p-1 col-12 col-sm-12 col-md-3 col-lg-3" style="border-radius: 20px;">
+                <img src="./Rectangle 4711.png" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Nike</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                        card's content.</p>
+
+                </div>
+            </div>
+
+            <div class="card p-1 col-12 col-sm-12 col-md-3 col-lg-3" style="border-radius: 20px;">
+                <img src="./Rectangle 4711.png" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Nike</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                        card's content.</p>
+
+                </div>
+            </div>
+
+            <div class="card p-1 col-12 col-sm-12 col-md-3 col-lg-3" style="border-radius: 20px;">
+                <img src="./Rectangle 4711.png" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Nike</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                        card's content.</p>
+
+                </div>
+            </div>
+
+            <div class="card p-1 col-12 col-sm-12 col-md-3 col-lg-3" style="border-radius: 20px;">
+                <img src="./Rectangle 4711.png" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Nike</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                        card's content.</p>
+
+                </div>
+            </div>
+
+            <div class="card p-1 col-12 col-sm-12 col-md-3 col-lg-3" style="border-radius: 20px;">
+                <img src="./Rectangle 4711.png" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Nike</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                        card's content.</p>
+
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+    <!-- products close -->
+    <!-- testimonials  -->
+    <style>
+        .testimonial-profile {
+            width: 6rem;
+            height: 6rem;
+            background-image: url('./adidas-black.png');
+            border-radius: 50px;
+        }
+    </style>
+    <div id="testimonials" style="background-image: url('./Rectangle\ 4712.png');width: 100%;background-size: cover;">
+        <div style="background-color: rgb(0, 0, 0,0.5);height: 100%;width:100%;color: white;">
+            <div class="container pt-5 pb-5">
+                <h1 class="text-center">
+                    Client Reviews
+                </h1>
+                <div class="row gap-5 justify-content-center pt-5 pb-5 p-3">
+                    <div class="card p-3 col-12 col-sm-12 col-md-3 col-lg-3" style="border-radius: 20px;">
+                        <img src="./Rectangle 4711.png" class="testimonial-profile card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title ">Mr. Abdul Gafoor</h5>
+                            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat, qui!
+                                Officiis mollitia eaque, amet architecto quibusdam</p>
+
+                        </div>
+                    </div>
+                    <div class="card p-3 col-12 col-sm-12 col-md-3 col-lg-3" style="border-radius: 20px;">
+                        <img src="./download 1.png" class="testimonial-profile card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title ">Mr. Dulquer Salman</h5>
+                            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat, qui!
+                                Officiis mollitia eaque, amet architecto quibusdam</p>
+
+                        </div>
+                    </div>
+                    <div class="card p-3 col-12 col-sm-12 col-md-3 col-lg-3" style="border-radius: 20px;">
+                        <img src="./download 2.png" class="testimonial-profile card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title ">Mr. Mohammed Kutty</h5>
+                            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat, qui!
+                                Officiis mollitia eaque, amet architecto quibusdam</p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- testimonials close -->
+    <!-- contact  -->
+    <style>
+        .contact-link {
+            color: grey;
+            text-decoration: none;
+        }
+    </style>
+    <div id="contact" class="container pt-5 pb-5">
+        <div class="row p-2">
+            <div class="col-12 col-md-4 col-lg-4 p-2">
+                <div class="col p-3" style="background-color: white;border-radius: 30px;">
+                    <h1>Contact Us</h1>
+                    <div class="row p-3">
+                        <div class="col-1 round-col">1</div>
+                        <div class="col">
+                            <h5 class="card-title">Phone number</h5>
+                            <a href="" class="contact-link">+91 7418529630</a>
+                        </div>
+                    </div>
+                    <div class="row p-3">
+                        <div class="col-1 round-col">1</div>
+                        <div class="col">
+                            <h5 class="card-title">Address</h5>
+                            <a href="" class="contact-link">+91 7418529630</a>
+                        </div>
+                    </div>
+                    <div class="row p-3">
+                        <div class="col-1 round-col">1</div>
+                        <div class="col">
+                            <h5 class="card-title">Opening Hours</h5>
+                            <a href="" class="contact-link">+91 7418529630</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-8 col-lg-8 p-2">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3928.5384199442287!2d76.32075457479439!3d10.05489479005328!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b080d2af904d121%3A0x68ac495b976ed08f!2sSpike%20Shoezo!5e0!3m2!1sen!2sin!4v1704032692392!5m2!1sen!2sin"
+                    style="border-radius: 20px;width: 100%;height: 100%;" allowfullscreen="true" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </div>
+    <!-- contact close -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+
+    <script>
+
+        const images = ['./image 182.png', './image 13 (1).png', './image3.png']; // Add your image URLs
+        const brandsss = ['NIKE', 'ADIDAS', 'PUMA']; // Add your item brands
+        const brands = ['./nike.png', './adidas.png', './jordan.png', './newbalance.png', './puma.png',];
+        let currentIndex = 0;
+
+        function changeContent() {
+            const heroImg = document.getElementById('heroImg');
+            const itemBrand = document.getElementById('itemBrand');
+
+            // Fade out
+            heroImg.style.opacity = 0;
+            itemBrand.style.opacity = 0;
+            // Change content after fade out
+            setTimeout(() => {
+                // Change image
+                heroImg.src = images[currentIndex];
+
+                // Change item brand
+                itemBrand.src = brands[currentIndex];
+
+                // Increment index
+                currentIndex = (currentIndex + 1) % images.length;
+
+                // Fade in
+                heroImg.style.opacity = 1;
+                itemBrand.style.opacity = 1;
+                heroImg.classList.toggle("anime-after-img");
+                setTimeout(() => {
+                    heroImg.classList.remove("anime-after-img");
+                }, 3000);
+            }, 1000); // Set the timeout duration to match the transition duration
+        }
+
+        // Initial content change
+        changeContent();
+
+        // Set interval to change content every 5 seconds
+        setInterval(changeContent, 4000);
+
+
+
+        window.addEventListener('scroll', function () {
+            var navbar = document.getElementById('navbar');
+            var navbarlogo = document.getElementById('logo-navbar');
+            var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+            if (scrollTop > window.innerHeight / 4) {
+                navbar.classList.add('navbar-shadow');
+                navbarlogo.style.height = "3rem";
+
+
+            } else {
+                navbar.classList.remove('navbar-shadow');
+                navbarlogo.style.height = "5rem";
+
+            }
+        });
+
+    </script>
+
+</body>
+
+</html>
