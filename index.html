@@ -28,7 +28,11 @@
 
     .nav-link {
         font-weight: bold;
-        color: rgb(159, 159, 159);
+        color: rgb(45, 45, 45);
+    }
+    .nav-link:hover{
+        scale: 1.2;
+        color: rgb(0, 0, 0);
     }
 
     .card {
@@ -144,7 +148,7 @@
         }
 
         .navbar {
-            background-color: #dddddd !important;
+            background-color: #ffffff !important;
         }
 
         .hero-round-red {
@@ -201,6 +205,12 @@
         }
 
     }
+    .navbar-toggler
+    {
+        border: none;
+        
+    }
+  
 </style>
 <style>
     /* === removing default button style ===*/
@@ -222,9 +232,9 @@
         letter-spacing: 3px;
         text-decoration: none;
         font-size: var(--fs-size);
-        font-family: "Arial";
+
         position: relative;
-        text-transform: uppercase;
+
         color: transparent;
         -webkit-text-stroke: 1px var(--text-stroke-color);
     }
@@ -247,6 +257,68 @@
     .button:hover .hover-text {
         width: 100%;
         filter: drop-shadow(0 0 23px var(--animation-color))
+    }
+</style>
+<style>
+    #checkbox {
+        display: none;
+    }
+
+    .toggle {
+        position: relative;
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 9px;
+        transition-duration: .5s;
+    }
+
+    .bars {
+        width: 100%;
+        height: 3px;
+        background-color:#ff0000;
+        border-radius: 4px;
+    }
+
+    #bar2 {
+        transition-duration: .8s;
+        width: 50%;
+    }
+
+    #bar1,
+    #bar3 {
+        width: 80%;
+    }
+
+    #checkbox:checked+.toggle .bars {
+        position: absolute;
+        transition-duration: .5s;
+    }
+
+    #checkbox:checked+.toggle #bar2 {
+        transform: scaleX(0);
+        transition-duration: .5s;
+    }
+
+    #checkbox:checked+.toggle #bar1 {
+        width: 100%;
+        transform: rotate(45deg);
+        transition-duration: .5s;
+    }
+
+    #checkbox:checked+.toggle #bar3 {
+        width: 100%;
+        transform: rotate(-45deg);
+        transition-duration: .5s;
+    }
+
+    #checkbox:checked+.toggle {
+        transition-duration: .5s;
+        transform: rotate(180deg);
     }
 </style>
 
@@ -620,7 +692,6 @@
             <div class="loader__ball"></div>
         </div>
     </div>
-
     <script>
         window.addEventListener("load", () => {
             const loader = document.querySelector(".preloader");
@@ -640,7 +711,12 @@
                     id="logo-navbar"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"
                 aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+                <input type="checkbox" id="checkbox">
+                <label for="checkbox" class="toggle">
+                    <div class="bars" id="bar1"></div>
+                    <div class="bars" id="bar2"></div>
+                    <div class="bars" id="bar3"></div>
+                </label>
             </button>
             <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 text-center"
@@ -962,7 +1038,7 @@
     <div id="contact" class="container pt-5 pb-5">
         <div class="row p-2">
             <div class="col-12 col-md-4 col-lg-4 p-2">
-                <div class="col p-3" style="background-color: white;border-radius: 30px;">
+                <div class="col p-3" style="border-radius: 30px;border: 1px solid grey;">
                     <h1>Contact Us</h1>
                     <div class="row p-3">
                         <div class="col-1 round-col">1</div>
